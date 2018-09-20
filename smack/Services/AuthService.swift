@@ -57,7 +57,8 @@ class AuthService {
             "email": lowercaseEmail,
             "password": password
         ]
-        //Making a post request to server and passing header and body and response is captured and setting the values of completion closure
+        
+        //Making a post request to server and passing header and body and response is captured and setting the value of completion closure
         Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
             
             if response.result.error == nil {
