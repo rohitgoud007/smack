@@ -27,6 +27,12 @@ let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
 
+//placeholder colors
+let SMACK_PURPLE_PLACEHOLDER = #colorLiteral(red: 0.2588235294, green: 0.3294117647, blue: 0.7254901961, alpha: 0.5)
+
+//Notification
+let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataDidChange")
+
 //header gets attachted while making an HTTPS req
 let HEADER = [
     "Content-Type": "application/json; charset=utf-8 "
