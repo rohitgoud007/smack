@@ -433,7 +433,7 @@
                         <outlet property="passwordTxt" destination="fXP-Qc-aAU" id="89J-7r-l7w"/>
                         <outlet property="userImg" destination="3VK-Ww-C4s" id="itp-WU-NPW"/>
                         <outlet property="usernameTxt" destination="lqV-qt-9uH" id="X8p-P5-ZSL"/>
-                        <segue destination="JrE-oS-giV" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="HGG-cq-7wJ"/>
+                        <segue destination="JrE-oS-giV" kind="unwind" identifier="UNWINDTOCHANNEL" unwindAction="prepareForUnwindWithSegue:" id="sEs-vF-2lB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ki0-RQ-Q1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
