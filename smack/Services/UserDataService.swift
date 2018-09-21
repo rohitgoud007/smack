@@ -25,6 +25,7 @@ class UserDataService {
         self.name = name
     }
     
+    //will be used later to store the name of the avatar from AvatarPickerVC and used tin CreateAccountVC to load up the image
     func setAvatarName(avatarName: String){
         self.avatarName = avatarName
     }
