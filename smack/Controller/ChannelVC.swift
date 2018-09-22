@@ -12,12 +12,14 @@ class ChannelVC: UIViewController {
 
     //Outlets
     
+    @IBOutlet weak var userImg: CircleImage!
     @IBOutlet weak var loginBtn: UIButton!
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue){}
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.size.width - 60//Setting the size of channel view
+        NotificationCenter.default.addObserver(self, selector: #selector(notifUserDataDidChange), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
     }
     
 
@@ -25,5 +27,14 @@ class ChannelVC: UIViewController {
         performSegue(withIdentifier: TO_LOGIN, sender: nil)
     }
     
-    
+    @objc func notifUserDataDidChange(notif: Notification){
+        if AuthService.instance.isLoggedIn {
+        loginBtn.setTitle(UserDataService.instance.name, for: .normal)
+        userImg.image = UIImage(named: UserDataService.instance.avatarName)
+        userImg.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+        }else {
+             loginBtn.setTitle("Login", for: .normal)
+            userImg.image = UIImage(named: "menuProfileIcon")
+        }
+    }
 }

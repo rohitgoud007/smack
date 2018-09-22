@@ -20,7 +20,7 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     //Variables
     
-    var avatarName = "userDefault"
+    var avatarName = "profileDefault"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
     var bgColor: UIColor?
     
@@ -77,6 +77,7 @@ class CreateAccountVC: UIViewController {
         
         bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
         UIView.animate(withDuration: 0.2){
+        self.avatarColor = "[\(r), \(g), \(b), 1]"
            self.userImg.backgroundColor = self.bgColor
         }
     }
