@@ -57,4 +57,14 @@ class UserDataService {
         let newColor = UIColor(red: rFloat, green: gFloat, blue: bFloat, alpha: aFloat)
         return newColor
     }
+    func logOutUser(){
+        id = ""
+        avatarName = ""
+        avatarColor = ""
+        email = ""
+        name = ""
+        AuthService.instance.isLoggedIn = false
+        AuthService.instance.authtoken = ""
+        AuthService.instance.userEmail = ""
+    }
 }
