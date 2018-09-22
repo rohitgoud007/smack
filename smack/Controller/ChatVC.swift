@@ -22,6 +22,12 @@ class ChatVC: UIViewController {
         self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())//To create Drag functionality
         self.view.addGestureRecognizer(revealViewController().tapGestureRecognizer())//To close when tapped
        
+        if AuthService.instance.isLoggedIn {
+            AuthService.instance.findUserByEmail { (success) in
+                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+                
+            }
+        }
     }
     
 
