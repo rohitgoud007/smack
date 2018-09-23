@@ -10,27 +10,24 @@ import UIKit
 
 class ChatVC: UIViewController {
     
-    //Outlets
-    
+    // Outlets
     @IBOutlet weak var menuBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //calling the action Method on revealViewController(thats y the taget and action is revealToggle)
+        
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-        self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())//To create Drag functionality
-        self.view.addGestureRecognizer(revealViewController().tapGestureRecognizer())//To close when tapped
-       
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
         if AuthService.instance.isLoggedIn {
-            AuthService.instance.findUserByEmail { (success) in
+            AuthService.instance.findUserByEmail(completion: { (success) in
                 NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
-                
-            }
+            })
+        }
+        MessageService.instance.findAllChannel { (success) in
+            
         }
     }
     
-
-   
-
 }
